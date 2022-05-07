@@ -9,7 +9,7 @@ HTML Footer tags:
 </a>
  */
 
-.from_instincthub{
+.from-instincthub{
   text-align: center;
   margin-top: 50px;
   position: absolute;
@@ -17,11 +17,11 @@ HTML Footer tags:
   left: 50%;
   bottom: 20px
 }
-.from_instincthub h3 {
+.from-instincthub h3 {
     color: #2c333a;
     font-size: 12px;
 }
-.from_instincthub img {
+.from-instincthub img {
     width: 100px;
     -o-object-fit: cover;
     object-fit: cover;
