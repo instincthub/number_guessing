@@ -20,7 +20,7 @@ function checkGuess() {
 
   /* =============================
   Printing prvious guesses
-  ============================= */
+  ================================ */
   const userGuess = Number(guessField.value);
   if (guess_count === 1) {
     guessesList.textContent = 'Previous guesses: ';
@@ -30,7 +30,7 @@ function checkGuess() {
 
   /* =============================
   Check if user guessed right
-  ============================= */
+  ================================ */
   if (userGuess === random_number) {
     lastResult.textContent = 'Congratulations! You got it right!';
     lastResult.style.backgroundColor = 'green';
@@ -39,9 +39,22 @@ function checkGuess() {
   }
 
   /* =============================
+  Check if user have exhusted the
+  guess count
+  ================================ */
+  else if (guess_count === 10) {
+    console.log(guess_count);
+    console.log(guess_count);
+    lastResult.textContent = '!!!GAME OVER!!!';
+    lastResult.style.color = 'red';
+    lowOrHi.textContent = '';
+    // setGameOver();
+  }
+
+  /* =============================
   Increase counter, reset and
   make input focus.
-  ============================= */
+  ================================ */
   guess_count++
   guessField.value = '';
   guessField.focus();
