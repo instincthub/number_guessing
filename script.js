@@ -1,7 +1,7 @@
 // Your JavaScript goes here
 
 // Adding variables to store our data
-let random_number = Math.floor(Math.random() * 100) + 1;
+let random_number = Math.floor(Math.random() * 2) + 1;
 
 const guessesList = document.querySelector('.guesses-list');
 const lastResult = document.querySelector('.last-result');
@@ -17,12 +17,31 @@ let reset_button;
 // Functions
 function checkGuess() {
   // alert('I am a placeholder');
+
+  /* =============================
+  Printing prvious guesses
+  ============================= */
   const userGuess = Number(guessField.value);
   if (guess_count === 1) {
     guessesList.textContent = 'Previous guesses: ';
   }
   guessesList.textContent += userGuess + ', ';
 
+
+  /* =============================
+  Check if user guessed right
+  ============================= */
+  if (userGuess === random_number) {
+    lastResult.textContent = 'Congratulations! You got it right!';
+    lastResult.style.backgroundColor = 'green';
+    lowOrHi.textContent = '';
+    // setGameOver();
+  }
+
+  /* =============================
+  Increase counter, reset and
+  make input focus.
+  ============================= */
   guess_count++
   guessField.value = '';
   guessField.focus();
