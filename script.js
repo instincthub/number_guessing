@@ -35,7 +35,7 @@ function checkGuess() {
     lastResult.textContent = 'Congratulations! You got it right!';
     lastResult.style.backgroundColor = 'green';
     lowOrHi.textContent = '';
-    // setGameOver();
+    setGameOver();
   }
 
   /* =============================
@@ -48,7 +48,7 @@ function checkGuess() {
     lastResult.textContent = '!!!GAME OVER!!!';
     lastResult.style.color = 'red';
     lowOrHi.textContent = '';
-    // setGameOver();
+    setGameOver();
   }
 
   /* =============================
@@ -79,3 +79,18 @@ function checkGuess() {
 guessSubmit.addEventListener('click', checkGuess);
 
 // checkGuess();
+
+
+/* =============================
+5. Disable input field,
+write gameover and
+call the reset game function
+================================ */
+function setGameOver() {
+  guessField.disabled = true;
+  guessSubmit.disabled = true;
+  resetButton = document.createElement('button');
+  resetButton.textContent = 'Start new game';
+  document.querySelector('.wrapper').append(resetButton);
+  // resetButton.addEventListener('click', resetGame);
+}
