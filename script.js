@@ -1,7 +1,7 @@
 // Your JavaScript goes here
 
 // Adding variables to store our data
-let random_number = Math.floor(Math.random() * 2) + 1;
+let random_number = Math.floor(Math.random() * 100) + 1;
 
 const guessesList = document.querySelector('.guesses-list');
 const lastResult = document.querySelector('.last-result');
