@@ -43,10 +43,7 @@ function checkGuess() {
   guess count
   ================================ */
   else if (guess_count === 10) {
-    console.log(guess_count);
-    console.log(guess_count);
     lastResult.textContent = '!!!GAME OVER!!!';
-    lastResult.style.color = 'red';
     lowOrHi.textContent = '';
     setGameOver();
   }
@@ -82,7 +79,7 @@ guessSubmit.addEventListener('click', checkGuess);
 
 
 /* =============================
-5. Disable input field,
+Disable input field,
 write gameover and
 call the reset game function
 ================================ */
@@ -92,5 +89,33 @@ function setGameOver() {
   resetButton = document.createElement('button');
   resetButton.textContent = 'Start new game';
   document.querySelector('.wrapper').append(resetButton);
-  // resetButton.addEventListener('click', resetGame);
+  resetButton.addEventListener('click', resetGame);
+}
+
+
+
+/* =============================
+Reset game function
+================================ */
+function resetGame() {
+  guessCount = 1;
+
+  // reset all the result p tags
+  const resetParas = document.querySelectorAll('.result-paras p');
+  for (const resetPara of resetParas) {
+    resetPara.textContent = '';
+  }
+
+  // remove the resetButton
+  resetButton.parentNode.removeChild(resetButton);
+
+  // enable input guessSubmit and guessField
+  guessField.disabled = false;
+  guessSubmit.disabled = false;
+  guessField.value = '';
+  guessField.focus();
+
+  lastResult.style.backgroundColor = 'white';
+
+  randomNumber = Math.floor(Math.random() * 100) + 1;
 }
