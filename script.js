@@ -19,7 +19,7 @@ function checkGuess() {
   // alert('I am a placeholder');
 
   /* =============================
-  Printing prvious guesses
+  1. Printing prvious guesses
   ================================ */
   const userGuess = Number(guessField.value);
   if (guess_count === 1) {
@@ -29,7 +29,7 @@ function checkGuess() {
 
 
   /* =============================
-  Check if user guessed right
+  2. Check if user guessed right
   ================================ */
   if (userGuess === random_number) {
     lastResult.textContent = 'Congratulations! You got it right!';
@@ -39,7 +39,7 @@ function checkGuess() {
   }
 
   /* =============================
-  Check if user have exhusted the
+  3. Check if user have exhusted the
   guess count
   ================================ */
   else if (guess_count === 10) {
@@ -52,7 +52,23 @@ function checkGuess() {
   }
 
   /* =============================
-  Increase counter, reset and
+  4. Let the user know when they
+  guess wrong. Give the user hint
+  if the guess was too low
+  or too high.
+  ================================ */
+  else {
+    lastResult.textContent = 'Wrong!';
+    lastResult.style.backgroundColor = 'red';
+    if(userGuess < random_number) {
+      lowOrHi.textContent = 'Last guess was too low!';
+    } else if(userGuess > random_number) {
+      lowOrHi.textContent = 'Last guess was too high!';
+    }
+  }
+
+  /* =============================
+  5. Increase counter, reset and
   make input focus.
   ================================ */
   guess_count++
