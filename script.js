@@ -12,3 +12,22 @@ const guessField = document.querySelector('.field-input');
 
 let guess_count = 1;
 let reset_button;
+
+
+// Functions
+function checkGuess() {
+  // alert('I am a placeholder');
+  const userGuess = Number(guessField.value);
+  if (guess_count === 1) {
+    guessesList.textContent = 'Previous guesses: ';
+  }
+  guessesList.textContent += userGuess + ', ';
+
+  guess_count++
+  guessField.value = '';
+  guessField.focus();
+}
+
+guessSubmit.addEventListener('click', checkGuess);
+
+// checkGuess();
